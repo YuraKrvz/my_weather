@@ -4,12 +4,10 @@ import Container from '@mui/material/Container';
 
 function App() {
   return (
-    <>
+    <Container>
       <Header />
-      <Container sx={{p: '1rem'}}>
-        <WeatherSection />
-      </Container>
-    </>
+      <WeatherSection />
+    </Container>
   );
 }
 

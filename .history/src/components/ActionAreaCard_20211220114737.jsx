@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function ActionAreaCard({country, name, icon, main}) {
+export default function ActionAreaCard({name, icon, main}) {
    console.log(icon)
   return (
     <Card sx={{ width: 200, margin: '10px', border: '3px solid #2196f3' }}>
@@ -22,7 +22,6 @@ export default function ActionAreaCard({country, name, icon, main}) {
            City: {name}
           </Typography>
           <Typography variant="body2" color="text.primary" component="div">
-            <Typography variant="subtitle2">Country: {country}</Typography>
             <Typography variant="subtitle2">temp: {Math.round(main.temp)}&deg;</Typography>
             <Typography variant="subtitle2">temp max: {Math.round(main.temp_max)}&deg; </Typography>
             <Typography variant="subtitle2">temp min: {Math.round(main.temp_min)}&deg; </Typography>

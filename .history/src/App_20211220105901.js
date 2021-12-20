@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <Container sx={{p: '1rem'}}>
+      <Container m={3}>
         <WeatherSection />
       </Container>
     </>

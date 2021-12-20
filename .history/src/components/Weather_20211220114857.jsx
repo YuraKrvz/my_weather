@@ -14,7 +14,7 @@ export default function Weather({lat, lon}) {
    console.log(weather)
    return (
       <div style={{display: 'flex'}}>
-         {weather && (<ActionAreaCard country={weather.sys.country} name={weather.name} icon={weather.weather[0].icon} main={weather.main}>
+         {weather && (<ActionAreaCard country={weather.sys.} name={weather.name} icon={weather.weather[0].icon} main={weather.main}>
             {123}
          </ActionAreaCard>)}
       </div>
