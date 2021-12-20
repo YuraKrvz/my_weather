@@ -14,7 +14,7 @@ export default function Weather({lat, lon}) {
    console.log(weather)
    return (
       <>
-         {weather && (<ActionAreaCard name={weather.name} icon={weather.weather[0].icon} main={weather.main}>
+         {weather && (<ActionAreaCard name={weather.name} icon={weather.weather[0].icon}>
             {123}
          </ActionAreaCard>)}
       </>
