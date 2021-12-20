@@ -1,6 +1,5 @@
 import ActionAreaCard from './ActionAreaCard';
 import {useEffect} from 'react';
-import {API_KEY, CurrentCountryByCoordinates} from '../config';
 import { useSelector, useDispatch} from 'react-redux';
 import {addCity} from '../store';
 
@@ -9,9 +8,10 @@ export default function Weather({lat, lon}) {
    const dispatch = useDispatch();
 
    useEffect(()=>{
-      fetch(CurrentCountryByCoordinates(lat, lon))
+      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=52384db87a489d7bf7951e5f1b8ed938`)
       .then((res)=> res.json())
       .then((res)=> dispatch(addCity(res)))
+      
    }, [])
 
    return (

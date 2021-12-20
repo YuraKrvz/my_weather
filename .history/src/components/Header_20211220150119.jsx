@@ -9,7 +9,6 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 //
-import {useDispatch} from 'react-redux';
 import {addCity} from '../store';
 
 const Search = styled('div')(({ theme }) => ({
@@ -55,11 +54,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const dispatch = useDispatch();
   const nameRef = React.useRef();
-  const handlerSearch = () => {
-    // dispatch(addCity())
-  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -90,7 +85,7 @@ export default function Header() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
               ref={nameRef}
-              onKeyUp={()=> handlerSearch}
+              onKeyUp={()=> alert('up')}
             />
           </Search>
         </Toolbar>

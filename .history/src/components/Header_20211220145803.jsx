@@ -8,9 +8,6 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-//
-import {useDispatch} from 'react-redux';
-import {addCity} from '../store';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -55,12 +52,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const dispatch = useDispatch();
-  const nameRef = React.useRef();
-  const handlerSearch = () => {
-    // dispatch(addCity())
-  }
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -87,10 +78,8 @@ export default function Header() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search country..."
               inputProps={{ 'aria-label': 'search' }}
-              ref={nameRef}
-              onKeyUp={()=> handlerSearch}
             />
           </Search>
         </Toolbar>

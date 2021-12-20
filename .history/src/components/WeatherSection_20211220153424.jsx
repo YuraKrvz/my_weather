@@ -6,8 +6,10 @@ export default function WeatherSection() {
 
    useEffect(()=>{
       navigator.geolocation.getCurrentPosition((loc)=> setCurrentLocation(loc))
+
       // console.log(currentLocation)
    }, []);
+
    // console.log(currentLocation)
 
    return (

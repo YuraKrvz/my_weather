@@ -1,13 +1,17 @@
 import {useState, useEffect} from 'react';
 import Weather from './Weather';
 
+import { GetCurrentPosition } from '../config';
+
 export default function WeatherSection() {
    const [currentLocation, setCurrentLocation] = useState(null);
 
    useEffect(()=>{
-      navigator.geolocation.getCurrentPosition((loc)=> setCurrentLocation(loc))
+      setCurrentLocation( GetCurrentPosition() )
+
       // console.log(currentLocation)
    }, []);
+
    // console.log(currentLocation)
 
    return (
