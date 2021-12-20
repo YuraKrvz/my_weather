@@ -1,6 +1,7 @@
 import ActionAreaCard from './ActionAreaCard';
 import {useEffect} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
+
 import {addCity} from '../store';
 
 export default function Weather({lat, lon}) {

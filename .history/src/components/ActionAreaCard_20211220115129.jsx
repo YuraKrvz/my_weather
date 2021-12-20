@@ -14,6 +14,7 @@ export default function ActionAreaCard({country, name, icon, main}) {
           height="100"
           image={`https://openweathermap.org/img/wn/${icon}@2x.png`}
           alt="img of weather"
+          
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
