@@ -2,16 +2,14 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 const listSlice = createSlice({
    name: 'listOfCities',
-   initialState: {
-      listOfCities: [],
-   },
+   initialState: [],
    reducers: {
       addCity: (state, action) => {
-         state.listOfCities.push(action.payload)
+         state.push(action.payload)
       },
       removeCity: (state, action) => {
-         state.listOfCities = state.listOfCities.filter(state => state.id !== action.payload);
-
+         // state.push(action)
+         console.log(action.payload)
       }
    }
 })

@@ -10,7 +10,8 @@ const listSlice = createSlice({
          state.listOfCities.push(action.payload)
       },
       removeCity: (state, action) => {
-         state.listOfCities = state.listOfCities.filter(state => state.id !== action.payload);
+         console.log(action.payload)
+         // state.listOfCities = state.listOfCities.filter(state => state.id !== action.payload);
 
       }
    }

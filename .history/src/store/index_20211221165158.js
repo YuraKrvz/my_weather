@@ -7,9 +7,10 @@ const listSlice = createSlice({
    },
    reducers: {
       addCity: (state, action) => {
-         state.listOfCities.push(action.payload)
+         state.push(action.payload)
       },
       removeCity: (state, action) => {
+         console.log(action.payload)
          state.listOfCities = state.listOfCities.filter(state => state.id !== action.payload);
 
       }

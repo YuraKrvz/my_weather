@@ -5,16 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import {useDispatch} from 'react-redux';
-import {removeCity} from '../store';
 
 export default function ActionAreaCard({country, name, icon, main, id}) {
-  const dispatch = useDispatch();
-
   return (
     <Card sx={{ width: 200, margin: '10px', border: '3px solid #2196f3' }}>
       <CardActionArea>
-        <CloseIcon onClick={()=> dispatch(removeCity(id))} />
+        <CloseIcon />
         <CardMedia
           component="img"
           height="100"

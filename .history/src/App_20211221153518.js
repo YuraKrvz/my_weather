@@ -3,6 +3,7 @@ import {store} from './store';
 import Header from './components/Header';
 import WeatherSection from './components/WeatherSection';
 import Container from '@mui/material/Container';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   return (

@@ -5,7 +5,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import {addCity} from '../store';
 
 export default function Weather({lat, lon}) {
-   const listCountries = useSelector(state => state.listOfCities.listOfCities)
+   const listCountries = useSelector(state => state.listOfCities)
    const dispatch = useDispatch();
 
    useEffect(()=>{

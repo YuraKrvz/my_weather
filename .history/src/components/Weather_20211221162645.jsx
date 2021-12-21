@@ -2,10 +2,10 @@ import ActionAreaCard from './ActionAreaCard';
 import {useEffect} from 'react';
 import {CurrentCountryByCoordinates} from '../config';
 import { useSelector, useDispatch} from 'react-redux';
-import {addCity} from '../store';
+import {addCity, removeCity} from '../store';
 
 export default function Weather({lat, lon}) {
-   const listCountries = useSelector(state => state.listOfCities.listOfCities)
+   const listCountries = useSelector(state => state.listOfCities)
    const dispatch = useDispatch();
 
    useEffect(()=>{
