@@ -67,7 +67,7 @@ export default function Header() {
         if(res.ok){
           return res.json()
         }
-        throw new Error(res.status)
+        return
       })
       .then(res => dispatch(addCity(res)))
       .catch(error => console.error(error))

@@ -64,10 +64,8 @@ export default function Header() {
     if(searchName !== ''){
       fetch( CurrentCountryByName(searchName) )
       .then(res => {
-        if(res.ok){
-          return res.json()
-        }
-        throw new Error(res.status)
+        console.log(res)
+        res.json()
       })
       .then(res => dispatch(addCity(res)))
       .catch(error => console.error(error))

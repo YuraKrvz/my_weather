@@ -65,9 +65,10 @@ export default function Header() {
       fetch( CurrentCountryByName(searchName) )
       .then(res => {
         if(res.ok){
+          console.log(res)
           return res.json()
         }
-        throw new Error(res.status)
+        throw new Error()
       })
       .then(res => dispatch(addCity(res)))
       .catch(error => console.error(error))
