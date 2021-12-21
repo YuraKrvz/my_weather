@@ -8,9 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-
+import { SvgButton } from '@mui/material';
+//
 import {CurrentCountryByName} from '../config';
 import {useDispatch} from 'react-redux';
 import {addCity} from '../store';
@@ -108,19 +107,13 @@ export default function Header() {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder=""
+              placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
               ref={nameRef}
-              // onBlur={()=> handlerSearch()}
+              onBlur={()=> handlerSearch()}
             />
-            </Search>
-            <Button 
-              onClick={()=> handlerSearch()} 
-              variant="contained" 
-              style={{marginLeft: '10px'}} 
-              endIcon={<SendIcon />}>
-              Search
-            </Button>
+            <SvgButton>Button</SvgButton>
+          </Search>
         </Toolbar>
       </AppBar>
     </Box>

@@ -12,7 +12,7 @@ export default function ActionAreaCard({country, name, icon, main, id}) {
   const dispatch = useDispatch();
 
   return (
-    <Card sx={{ width: 200, margin: '10px', border: '1px solid #2196f3', backgroundColor: '#0d47a1' }}>
+    <Card sx={{ width: 200, margin: '10px', border: '1px solid #2196f3', backgroundColor: '#e65100' }}>
       <CardActionArea>
         <CloseIcon onClick={()=> dispatch(removeCity(id))} />
         <CardMedia
