@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+
+import TextField from '@mui/material/TextField';
 //
 import {CurrentCountryByName} from '../config';
 import {useDispatch} from 'react-redux';
@@ -56,29 +58,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const [searchName, setSearchName] = React.useState('');
+  const [searchName, setSearchName] = React.useState('london');
   const dispatch = useDispatch();
   const nameRef = React.useRef();
 
   React.useEffect(()=>{
-    if(searchName !== ''){
-      fetch( CurrentCountryByName(searchName) )
-      .then(res => {
-        try{
-         return res.json()
-        }catch(e){
-          throw new Error(e)
-        }
-      })
-      .then(res => dispatch(addCity(res)))
-      .catch(error => console.error(error))
-    }
+    fetch( CurrentCountryByName(searchName) )
+    .then(res => res.json())
+    .then(res => dispatch(addCity(res)))
+    .catch(error => console.error(error))
   }, [searchName])
 
   const handlerSearch = () => {
-    setSearchName(nameRef.current.getElementsByTagName('input')[0].value);
-      // console.log(nameRef.current.getElementsByTagName('input')[0].value)
-    nameRef.current.getElementsByTagName('input')[0].value = '';
+    setSearchName(nameRef.current.getElementsByTagName('input')[0].value)
+
+    console.log(CurrentCountryByName( nameRef.current.getElementsByTagName('input')[0].value) )
+    console.log(nameRef.current.getElementsByTagName('input')[0].value)
   }
 
   return (
@@ -112,6 +107,7 @@ export default function Header() {
               ref={nameRef}
               onBlur={()=> handlerSearch()}
             />
+            
           </Search>
         </Toolbar>
       </AppBar>

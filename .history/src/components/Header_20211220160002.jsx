@@ -56,29 +56,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const [searchName, setSearchName] = React.useState('');
   const dispatch = useDispatch();
   const nameRef = React.useRef();
-
-  React.useEffect(()=>{
-    if(searchName !== ''){
-      fetch( CurrentCountryByName(searchName) )
-      .then(res => {
-        try{
-         return res.json()
-        }catch(e){
-          throw new Error(e)
-        }
-      })
-      .then(res => dispatch(addCity(res)))
-      .catch(error => console.error(error))
-    }
-  }, [searchName])
-
   const handlerSearch = () => {
-    setSearchName(nameRef.current.getElementsByTagName('input')[0].value);
-      // console.log(nameRef.current.getElementsByTagName('input')[0].value)
-    nameRef.current.getElementsByTagName('input')[0].value = '';
+    // dispatch(addCity())
+    fetch(CurrentCountryByName(nameRef.current.value))
+    .then(res => res.json())
+    .then(res => dispatch(addCity(res))
+    
   }
 
   return (
@@ -110,7 +95,7 @@ export default function Header() {
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
               ref={nameRef}
-              onBlur={()=> handlerSearch()}
+              onKeyUp={()=> handlerSearch}
             />
           </Search>
         </Toolbar>

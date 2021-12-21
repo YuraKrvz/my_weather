@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+
+import TextField from '@mui/material/TextField';
 //
 import {CurrentCountryByName} from '../config';
 import {useDispatch} from 'react-redux';
@@ -56,30 +58,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const [searchName, setSearchName] = React.useState('');
   const dispatch = useDispatch();
   const nameRef = React.useRef();
-
-  React.useEffect(()=>{
-    if(searchName !== ''){
-      fetch( CurrentCountryByName(searchName) )
-      .then(res => {
-        try{
-         return res.json()
-        }catch(e){
-          throw new Error(e)
-        }
-      })
-      .then(res => dispatch(addCity(res)))
-      .catch(error => console.error(error))
-    }
-  }, [searchName])
-
   const handlerSearch = () => {
-    setSearchName(nameRef.current.getElementsByTagName('input')[0].value);
-      // console.log(nameRef.current.getElementsByTagName('input')[0].value)
-    nameRef.current.getElementsByTagName('input')[0].value = '';
+    // dispatch(addCity())
+    // fetch( CurrentCountryByName(nameRef.current.value) )
+    // .then(res => res.json())
+    // .then(res => dispatch(addCity(res))
+    console.log(CurrentCountryByName(nameRef.current.value))
+    console.log(nameRef.current.querySelector('.MuiInputBase-input'))
   }
+    // const handlerSearch = async () => (
+  //   // dispatch(addCity())
+  //   await CurrentCountryByName(nameRef.current.value)
+  //   await (res) => res.json()
+  //   await (res) => dispatch(addCity(res))
+  // )
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -106,12 +100,14 @@ export default function Header() {
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
+            
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
               ref={nameRef}
               onBlur={()=> handlerSearch()}
             />
+            <input className="MuiInputBase-input css-yz9k0d-MuiInputBase-input" type="text" type="text" ref={nameRef} onBlur={()=> handlerSearch()} />
           </Search>
         </Toolbar>
       </AppBar>

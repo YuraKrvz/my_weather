@@ -67,7 +67,8 @@ export default function Header() {
         try{
          return res.json()
         }catch(e){
-          throw new Error(e)
+          // throw new Error(e)
+          console.error(e)
         }
       })
       .then(res => dispatch(addCity(res)))

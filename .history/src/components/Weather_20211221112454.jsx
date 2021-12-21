@@ -19,7 +19,7 @@ export default function Weather({lat, lon}) {
          {
             listCountries.map(country => (
                <ActionAreaCard 
-                  country={country.sys.country} 
+                  // country={country.sys.country} 
                   name={country.name} 
                   icon={country.weather[0].icon} 
                   main={country.main} 

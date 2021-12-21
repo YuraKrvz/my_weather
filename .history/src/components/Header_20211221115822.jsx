@@ -63,22 +63,16 @@ export default function Header() {
   React.useEffect(()=>{
     if(searchName !== ''){
       fetch( CurrentCountryByName(searchName) )
-      .then(res => {
-        try{
-         return res.json()
-        }catch(e){
-          throw new Error(e)
-        }
-      })
+      .then(res => res.json())
       .then(res => dispatch(addCity(res)))
       .catch(error => console.error(error))
     }
   }, [searchName])
 
   const handlerSearch = () => {
-    setSearchName(nameRef.current.getElementsByTagName('input')[0].value);
+    setSearchName(nameRef.current.getElementsByTagName('input')[0].value)
       // console.log(nameRef.current.getElementsByTagName('input')[0].value)
-    nameRef.current.getElementsByTagName('input')[0].value = '';
+    nameRef.current.getElementsByTagName('input')[0].value = ''
   }
 
   return (
