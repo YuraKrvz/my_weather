@@ -1,15 +1,8 @@
 import { createSlice, configureStore, combineReducers } from '@reduxjs/toolkit';
-import {
-   persistStore,
-   persistReducer,
-   FLUSH,
-   REHYDRATE,
-   PAUSE,
-   PERSIST,
-   PURGE,
-   REGISTER,
- } from 'redux-persist'
-import storage from 'redux-persist/lib/storage';
+
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+//
 
 const listSlice = createSlice({
    name: 'listOfCities',
@@ -42,11 +35,5 @@ export const {addCity, removeCity} = listSlice.actions;
 
 export const store = configureStore({
    reducer: persistedReducer,
-   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
 });
-export const persistor = persistStore(store);
+

@@ -10,6 +10,7 @@ import {
    REGISTER,
  } from 'redux-persist'
 import storage from 'redux-persist/lib/storage';
+//
 
 const listSlice = createSlice({
    name: 'listOfCities',
@@ -49,4 +50,4 @@ export const store = configureStore({
       },
     }),
 });
-export const persistor = persistStore(store);
+export const persistor = persistStore(store)
